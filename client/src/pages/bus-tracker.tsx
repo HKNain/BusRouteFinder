@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapView } from '@/components/map-view';
 import { OrderView } from '@/components/order-view';
@@ -11,16 +11,6 @@ export default function BusTracker() {
   const [activeMode, setActiveMode] = useState<ViewMode>('map');
   const { busStops, currentStop, nextStop, busPosition } = useBusTracking();
 
-  // Update Google Maps API key in the script tag
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API || "demo_key";
-    const scripts = document.querySelectorAll('script[src*="maps.googleapis.com"]');
-    scripts.forEach(script => {
-      if (script.getAttribute('src')?.includes('API_KEY_PLACEHOLDER')) {
-        script.setAttribute('src', script.getAttribute('src')!.replace('API_KEY_PLACEHOLDER', apiKey));
-      }
-    });
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
