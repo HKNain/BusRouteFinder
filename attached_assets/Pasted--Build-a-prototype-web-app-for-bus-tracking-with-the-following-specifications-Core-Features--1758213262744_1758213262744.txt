@@ -1,0 +1,116 @@
+👉 Build a prototype web app for bus tracking with the following specifications:
+
+🌍 Core Features
+
+3 Display Modes (Switchable via Tabs/Buttons):
+
+Map Mode:
+
+Embed Google Maps.
+
+Show a fixed route with markers for stops.
+
+Route should be between ISBT Kashmiri Gate and Mehrauli Terminal, covering all the intermediate stops listed below.
+
+Draw a polyline on the route.
+
+Show a bus marker moving along the route (simulate movement with setInterval).
+
+Display ETA for next stop (generate random but realistic values, e.g., 2–10 min, not unrealistic like 50 min for short hops).
+
+Order-Tracking Mode (Eco View):
+
+Vertical list of stops like an order-tracking app (stepper style).
+
+Current bus position should highlight the “active stop” (progress indicator).
+
+ETA beside each stop (again, use realistic random values).
+
+Text Mode:
+
+Simple text-based view of stops with their ETAs in a table.
+
+Highlight current stop.
+
+Fixed Stops & Route:
+Use these 29 stops in order:
+
+1. ISBT Kashmiri Gate  
+2. Raj Ghat  
+3. IG Stadium  
+4. IP Power Station  
+5. IP Depot  
+6. Railway Road Bridge  
+7. Nizamuddin Road Bridge  
+8. Sarai Kale Khan  
+9. Gurudwara Bala Sahib  
+10. Maharani Bagh  
+11. Nehru Nagar  
+12. Sri Niwas Puri  
+13. Lajpat Nagar  
+14. Gupta Market  
+15. Andrew Ganj  
+16. South Extension  
+17. AIIMS - 1  
+18. AIIMS - 2  
+19. Yusuf Sarai  
+20. Green Park  
+21. Hauz Khas  
+22. Padmini Enclave  
+23. IIT Gate  
+24. Adchini Village  
+25. MMTC  
+26. PTS  
+27. DDF Flats Lado Sarai  
+28. Qutub Minar  
+29. Mehrauli Terminal  
+
+
+UI/UX Requirements:
+
+Clean and minimal design (TailwindCSS).
+
+Top navbar with app name: “Bus ETA Prototype”.
+
+Mode-switch buttons: Map | Order | Text.
+
+Card-style containers with soft shadows, rounded corners.
+
+Use Google Maps embed or API for map view.
+
+ETA Simulation Logic:
+
+When bus moves from one stop to another, generate ETA = Math.floor(Math.random() * 8) + 2 (so between 2–10 minutes).
+
+Update dynamically every few seconds.
+
+Environment Variables:
+
+Store Google Maps API key in .env file.
+
+Example:
+
+VITE_GOOGLE_MAPS_API=your_api_key_here
+
+
+In code, fetch it via import.meta.env.VITE_GOOGLE_MAPS_API.
+
+Tech Stack:
+
+Vite + React + TailwindCSS.
+
+Recharts / stepper-style UI for Order view.
+
+Google Maps JavaScript API (for Map Mode).
+
+⚡ Expected Deliverable:
+
+A working frontend prototype deployed via Replit.
+
+Modes toggle correctly.
+
+Map shows route & bus animation.
+
+ETAs update realistically.
+
+Clean, neat, professional UI.
