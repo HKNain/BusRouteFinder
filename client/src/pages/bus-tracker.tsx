@@ -8,8 +8,9 @@ import { useBusTracking } from '@/hooks/use-bus-tracking';
 type ViewMode = 'map' | 'order' | 'text';
 
 export default function BusTracker() {
+  
   const [activeMode, setActiveMode] = useState<ViewMode>('map');
-  const { busStops, currentStop, nextStop, busPosition } = useBusTracking();
+  const { busStops, currentStop, nextStop, busPosition, isMoving, movementProgress } = useBusTracking();
 
 
   return (
@@ -40,7 +41,7 @@ export default function BusTracker() {
               >
                 Order
               </Button>
-              <Button
+              {/* <Button
                 variant={activeMode === 'text' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setActiveMode('text')}
@@ -48,30 +49,33 @@ export default function BusTracker() {
                 data-testid="button-text"
               >
                 Text
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
       </nav>
+      
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {activeMode === 'map' && (
           <MapView 
-            busStops={busStops}
-            currentStop={currentStop}
-            nextStop={nextStop}
-            busPosition={busPosition}
-          />
+          busStops={busStops}
+          currentStop={currentStop}
+          nextStop={nextStop}
+          busPosition={busPosition}
+          isMoving={isMoving}
+          movementProgress={movementProgress}
+        />
         )}
         
         {activeMode === 'order' && (
           <OrderView busStops={busStops} />
         )}
         
-        {activeMode === 'text' && (
+        {/* {activeMode === 'text' && (
           <TextView busStops={busStops} />
-        )}
+        )} */}
       </main>
     </div>
   );
